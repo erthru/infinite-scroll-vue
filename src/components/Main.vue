@@ -1,23 +1,23 @@
 <template>
-  <div>
-    <br>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div v-for="user in users" v-bind:key="user.id">
-            <div class="card">
-              <div class="card-body">
-                <h5>Email: {{user.email}}</h5>
-                <p>{{user.last_name}}, {{user.first_name}}</p>
+  <v-container>
+    <v-layout>
+      <v-flex sm6 offset-sm3>
+        <div v-for="user in users" v-bind:key="user.id">
+          <v-card>
+            <v-card-title>
+              <div>
+                <div class="headline">Email: {{user.email}}</div>
+                <span>{{user.last_name}}, {{user.first_name}}</span>
               </div>
-            </div>
-            <br>
-          </div>
+            </v-card-title>
+          </v-card>
+          <br>
         </div>
-      </div>
-    </div>
-  </div>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
+
 <script>
 export default {
   data() {
@@ -34,10 +34,7 @@ export default {
   methods: {
     fetchApi() {
       this.axios
-        .get(
-          "https://reqres.in/api/users?&per_page=8&page=" +
-            (this.page += 1)
-        )
+        .get("https://reqres.in/api/users?&per_page=8&page=" + (this.page += 1))
         .then(res => {
           let data = res.data.data;
           console.log(data.length);

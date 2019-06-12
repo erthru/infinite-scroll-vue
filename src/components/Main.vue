@@ -1,21 +1,19 @@
 <template>
-  <v-container>
-    <v-layout>
-      <v-flex sm6 offset-sm3>
-        <div v-for="user in users" v-bind:key="user.id">
-          <v-card>
-            <v-card-title>
-              <div>
-                <div class="headline">Email: {{user.email}}</div>
-                <span>{{user.last_name}}, {{user.first_name}}</span>
-              </div>
-            </v-card-title>
-          </v-card>
-          <br>
-        </div>
-      </v-flex>
-    </v-layout>
-  </v-container>
+  <v-layout>
+    <v-flex sm12>
+      <div v-for="user in users" v-bind:key="user.id">
+        <v-card>
+          <v-card-title>
+            <div>
+              <div class="headline">Email: {{user.email}}</div>
+              <span>{{user.last_name}}, {{user.first_name}}</span>
+            </div>
+          </v-card-title>
+        </v-card>
+        <br>
+      </div>
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
